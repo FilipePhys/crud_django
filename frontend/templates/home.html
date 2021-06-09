@@ -1,0 +1,20 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock title %}
+{% block content %}
+{% if user.is_authenticated %}
+<div id="header">
+  <p><a href="{% url 'profile' user.id %}">Profile</a> |
+  <a href="{% url 'logout' %}">Log Out</a></p>
+</div>
+  <h3> Hi {{ user.username }}! Are you Fine? </h3>
+{% else %}
+<div id="header">
+  <p><a href="{% url 'login' %}">Log In</a> |
+  <a href="{% url 'signup' %}">Sign Up</a> |
+  <a href="{% url 'password_reset' %}">Password Reset</a></p>
+</div>
+<p><h3>You are not logged in</h3></p>
+{% endif %}
+{% endblock content %}

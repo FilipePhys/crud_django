@@ -1,0 +1,11 @@
+Hello World!
+<form action="/teste/" method="POST" >
+    {% csrf_token %}
+    person
+    <input name="username" placeholder="username"/>
+    <input name="birth_date" placeholder="birth_date"/>
+    <input name="email" placeholder="e-mail"/>
+    <input type="submit" value="send" />
+</form>
+<h3> {{ confirm_added }} </h3>
+<h3> {{ errors }} </h3>

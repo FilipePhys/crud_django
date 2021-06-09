@@ -1,0 +1,31 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}profile{% endblock title %}
+{% block content %}
+  {% if user.is_authenticated %}
+  <div id="header">
+    <p><a href="{% url 'home' %}">Home</a>  |
+    <a href="{% url 'profilechange' user.id %}">Profile Changes</a> |
+    <a href="{% url 'password_change' %}">Password Change</a> |
+    <a href="{% url 'logout' %}">Log Out</a></p>
+  </div>
+    <body>
+      <h3> Hi <em>{{ user.username }}</em>! Are you Fine? </h3>
+      <h3> Were you born in {{ user.birth_date}}? </h3>
+      <h3> This is your email {{ user.email}}? </h3>
+      {% if user.profile_img %}
+        <img class="imageprofile" src="{{ user.profile_img.url }}"/>
+      {% endif %}
+    </body>
+  {% else %}
+    <div id="header">
+      <p><a href="{% url 'home' %}">Home</a> |
+      <a href="{% url 'login' %}">Log In</a> |
+      <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
+    <body>
+      <p><h3>You are not logged in</h3></p>
+    </body>
+  {% endif %}
+{% endblock content %}
