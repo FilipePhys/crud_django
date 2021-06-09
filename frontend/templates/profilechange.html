@@ -5,9 +5,7 @@
 {% block content %}
 {% if user.is_authenticated %}
   <div id="headerin">
-    <div id="subheaderin">
-      <p><a href="{% url 'password_change' %}">Password Change</a></p>
-    </div>
+    <h3>Change your profile as you want</h3>
     <body>
       <form action="{% url 'profilechange' user.id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -15,6 +13,11 @@
         <button type="submit">Actualizar</button>
       </form>
       {{ confirm_added }}
+      <div id="subheaderin">
+        <h3>Critical preferences</h3>
+        <p><a href="{% url 'password_change' %}">Password Change</a></p>
+        <p><a href="{% url 'profiledelete'  user.id %}">Delete account</a></p>
+      </div>
     </body>
   </div>
 {% else %}
