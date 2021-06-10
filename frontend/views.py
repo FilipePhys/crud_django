@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.context_processors import request
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, TemplateView, UpdateView, DeleteView
+from django.views.generic import CreateView, TemplateView, UpdateView, DeleteView, ListView
 from users.forms import CustomUserCreationForm, CustomUserUpdateForm
 from users.models import CustomUser
 
@@ -13,7 +13,8 @@ class SignUpView(CreateView):
     template_name = 'signup.html'
 
 
-class HomePageView(TemplateView):
+class HomePageView(ListView):
+    model = CustomUser
     template_name = 'home.html'
 
 

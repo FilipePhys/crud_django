@@ -9,7 +9,14 @@
   </div>
 {% else %}
   <div id="test_out">
-    <p><h3>You are not logged in</h3></p>
+    <h3>You are not logged in</h3>
   </div>
 {% endif %}
+<div>
+  <h3> Users!!! </h3>
+  {% for person in object_list %}
+  <h4><span class="user_list">{{ person.username }}</span><h4>
+  {% endfor %}
+</div>
 {% endblock content %}
+

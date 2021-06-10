@@ -144,12 +144,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'  # NEW
 LOGOUT_REDIRECT_URL = 'home'  # NEW
 
-# NEW
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-SENDGRID_API_KEY = env('SENDGRID_API_KEY')
-DEFAULT_FROM_EMAIL = 'amigomaisquesecretoinfo@gmail.com'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'  # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# NEW e-mail config
+SENDGRID_API_KEY = env('SENDGRID_API_KEY', default=None)
+if SENDGRID_API_KEY is not None:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = 'apikey'  # this is exactly the value 'apikey'
+    EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True

@@ -6,11 +6,11 @@
   {% if user.is_authenticated %}
   <div id="test_in">
     <body>
-      <h3> Hi <em>{{ user.username }}</em>! Are you Fine? </h3>
+      <h3> User: <em>{{ user.username }}</em></h3>
       {% if user.birth_date %}
-        <h3> Were you born in {{ user.birth_date}}? </h3>
+        <h3> Birth date: {{ user.birth_date}} </h3>
       {% endif %}
-      <h3> This is your email {{ user.email}}? </h3>
+      <h3> e-mail: {{ user.email}} </h3>
       {% if user.profile_img %}
         <img class="imageprofile" src="{{ user.profile_img.url }}"/>
       {% endif %}

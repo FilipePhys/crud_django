@@ -1,4 +1,26 @@
 /* static/css/base.css */
+/* base start */
+body {
+ padding-top: 28px;
+ background:#004d40;
+}
+.navbar_template_base_div {
+  background: #00251a;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  position: fixed;
+}
+.container_div {
+  background: #39796b;
+  padding-top: 15px;
+  height:1500px;
+}
+.footer {
+  text-align:center;
+}
+/* base end */
 h3 {
   color: #00008B;
 }
